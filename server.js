@@ -54,7 +54,7 @@ app.get("/api/movies/:_id", (req, res) => {
 
 app.put("/api/movie/:_id", (req, res) => {
     db.updateMovieById(req.body, req.params._id).then((data) => {
-        res.json(data);
+        console.log("Successfully updated a movie!");
     }).catch((err) => {
         console.log(err);
     })
@@ -62,10 +62,14 @@ app.put("/api/movie/:_id", (req, res) => {
 
 app.delete("/api/movies/:_id", (req, res) => {
     db.deleteMovieById(req.params._id).then((data) => {
-        res.json(data);
+        console.log("Successfully deleted a movie!");
     }).catch((err) => {
         console.log(err);
     })
+});
+
+app.use(function(req,res){
+    res.status(404).send("Resource not found");
 });
 
 db.initialize(process.env.MONGODB_CONN_STRING)
