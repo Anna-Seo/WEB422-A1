@@ -38,7 +38,7 @@ app.get("/api/movies", (req, res) => {
     var perPage = req.query.perPage;
     var title = req.query.title;
     db.getAllMovies(page, perPage, title).then((data) => {
-        res.json(data);
+        res.json({movies: data});
     }).catch((err) => {
         console.log(err);
     })
