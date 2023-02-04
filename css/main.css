@@ -1,9 +1,0 @@
-#navbarSupportedContent {
-    display: flex; 
-    justify-content: flex-end;
-}
-
-#moviesTable tbody tr:hover{
-    cursor:pointer; 
-    background: rgb(223, 221, 221);
-}
